@@ -1,38 +1,338 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1513151233558-d860c76eb389?q=80&w=300&auto=format&fit=crop')
+    repeat;
+  opacity: 0.1;
+  z-index: -1;
+  animation: subtleMove 20s infinite linear;
+}
+
+@keyframes subtleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+.container {
+  background: linear-gradient(53deg, #0be8ff42, #00e9956b);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  color: #e74c3c; /* New color */
+
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  color: #16a085; /* New label color */
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input[type='text'],
+select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7); /* Lighter input background */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+input[type='text']:focus,
+select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+button {
+  background: linear-gradient(
+    45deg,
+    #e74c3c,
+    #c0392b
+  ); /* New button gradient */
   color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes App-logo-spin {
+button:active {
+  background: linear-gradient(45deg, #d35400, #e67e22);
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#greeting-card {
+  margin-top: 30px;
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  animation: cardAppear 0.5s ease-in;
+  min-height: 350px;
+  width: 600px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  border: 5px solid #ffd700;
+}
+
+.ugadi-card {
+  background:
+    url('https://res.cloudinary.com/djkurye2f/image/upload/v1743159061/360_F_491487591_Tb1HxiqbYwu6StN26OfK04BI6q2Qpzfk_pzbffo_1_bmzapx.jpg')
+      no-repeat center,
+    linear-gradient(135deg, #f39c12, #8e44ad); /* New gradient colors */
+  color: #ffffff; /* White text */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.ugadi-card::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: url('https://res.cloudinary.com/djkurye2f/image/upload/v1743068678/mango-leaves.png')
+    no-repeat center;
+  background-size: contain;
+  z-index: 1;
+}
+
+.ramadan-card {
+  background:
+    url('https://res.cloudinary.com/djkurye2f/image/upload/v1743160201/ramadan-kareem-greeting-card-with-a-mosque-and-stars-size-a4-vector_bck3pr.jpg')
+      no-repeat center,
+    linear-gradient(135deg, #2980b9, #8e44ad); /* New gradient colors */
+  color: #ffffff; /* White text */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.ramadan-card::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: url('https://res.cloudinary.com/djkurye2f/image/upload/v1743068678/crescent-moon.png')
+    no-repeat center;
+  background-size: contain;
+  z-index: 1;
+}
+
+@keyframes cardAppear {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0.9) rotate(-5deg);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
+}
+
+#greeting-card h2 {
+  color: gold;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+  letter-spacing: 2px;
+}
+
+#greeting-card p {
+  color: gold;
+  font-size: 1.3em;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.download-btn {
+  background: linear-gradient(
+    45deg,
+    #27ae60,
+    #2ecc71
+  ); /* New download button gradient */
+}
+
+.new-card-btn {
+  background: linear-gradient(
+    45deg,
+    blue,
+    #c0392b
+  ); /* New create card button gradient */
+}
+
+#history {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#history h3 {
+  color: #e67e22; /* New color */
+  margin-bottom: 0;
+}
+
+#history ul {
+  list-style: none;
+  padding: 0;
+}
+
+#history li {
+  padding: 8px;
+  border-bottom: 1px solid #dfe6e9;
+  font-size: 0.9em;
+}
+
+.clear-btn {
+  background: linear-gradient(45deg, #e74c3c, #c0392b); /* New color */
+  padding: 10px 20px;
+  font-size: 1em;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  #greeting-card {
+    font-size: 1em;
+    width: 300px;
+    min-height: 300px;
+  }
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .clear-btn {
+    margin-top: 10px;
+  }
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-btn,
+  .new-card-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+.ugadi-card,
+.ramadan-card {
+  background-size: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.name {
+  color: purpule;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 5px 1px 0px rgb(0 0 0);
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+label {
+  font-weight: 600;
+  color: black; /* Bright and bold yellow for the label */
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  display: block;
 }
